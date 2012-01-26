@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		#swipe {
+			border: 1px solid #999;
+			-webkit-user-select: none;
+			width: 200px;
+			height: 200px;
+			padding: 1em;
+		}
+	</style>
+</head>
+<body>
+	<div id="swipe">
+		swipe me
+	</div>
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.swipeListener.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function onSwipeRight(){
+				alert("going right?");
+			};
+			
+			$("#swipe").swipeListener({
+				swipeUp: function() {alert("you go up!");},
+				swipeDown: function() {alert("you go down..")},
+				swipeLeft: function() {alert("go left")},
+				swipeRight: onSwipeRight
+			});
+			
+		});
+	</script>
+</body>
+</html>
