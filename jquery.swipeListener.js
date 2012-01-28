@@ -16,7 +16,7 @@
 			swipeLeft: undefined, // or swipe left,
 			swipeRight: undefined // or swipe right
 		};
-
+		
 		if (option) {
 			$.extend(config, option);
 		}
@@ -25,9 +25,12 @@
 			var start = undefined;
 			var stop  = undefined;
 			var $this = $(this);
-			var isTouchDevice = typeof this.ontouchstart !== "undefined";
+			var isTouchDevice   = typeof this.ontouchstart !== "undefined";
+			var touchStartEvent = isTouchDevice ? "touchstart" : "mousedown";
+			var touchMoveEvent  = isTouchDevice ? "touchmove" : "mousemove";
+			var touchEndEvent   = isTouchDevice ? "toucnend" : "mouseup";
 			
-			$this.bind("touchstart mousedown", touchStart);
+			$this.bind(touchStartEvent, touchStart);
 			
 			function touchStart(event){
 				var e = isTouchDevice ? event.originalEvent.touches[0] : event;
@@ -38,7 +41,7 @@
 				};
 				event.stopPropagation();
 				
-				$this.bind("touchmove mousemove", touchMove).one("touchend mouseup", touchEnd);
+				$this.bind(touchMoveEvent, touchMove).one(touchEndEvent, touchEnd);
 			};
 			
 			function touchMove(event){
