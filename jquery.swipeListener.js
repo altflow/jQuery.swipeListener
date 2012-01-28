@@ -28,7 +28,7 @@
 			var isTouchDevice   = typeof this.ontouchstart !== "undefined";
 			var touchStartEvent = isTouchDevice ? "touchstart" : "mousedown";
 			var touchMoveEvent  = isTouchDevice ? "touchmove" : "mousemove";
-			var touchEndEvent   = isTouchDevice ? "toucnend" : "mouseup";
+			var touchEndEvent   = isTouchDevice ? "touchend" : "mouseup";
 			
 			$this.bind(touchStartEvent, touchStart);
 			
