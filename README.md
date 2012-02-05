@@ -1,4 +1,4 @@
-jQuery.swipeLister.js
+jQuery.swipeListener.js
 ----
 
 jQuery plugin to assign swipe event listener.
